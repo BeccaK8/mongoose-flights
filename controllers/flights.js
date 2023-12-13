@@ -4,7 +4,7 @@ const Flight = require('../models/flight');
 // index
 async function index(req, res) {
     try {
-        const allFlights = await Flight.find();
+        const allFlights = await Flight.find().sort({ departs: 1 });
         res.render('flights/index', {
             flights: allFlights,
             title: 'All Flights'
