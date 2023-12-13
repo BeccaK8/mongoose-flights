@@ -9,7 +9,7 @@
     </thead>
 
     <% flights.forEach(function(f) { %>
-        <tr>
+        <tr <%= f.departs < new Date() ? 'class=past' : ''%>>
             <td><%= f.airline %></td>
             <td><%= f.airport %></td>
             <td><%= f.flightNo %></td>
