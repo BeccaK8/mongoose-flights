@@ -19,6 +19,19 @@ th {
   text-align: left;
 }
 
-td.late {
-  color: red;
+input[type=text], input[type=datetime-local], select {
+  border: 2px solid black;
+  border-radius: 4px;
+  margin: 8px 0;
+}
+
+button {
+  background-color: darkslategrey;
+  color: white;
+  border: none;
+  padding: 10px 32px;
+  margin: 8px 2px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
 }
