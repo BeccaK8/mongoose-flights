@@ -18,6 +18,12 @@ async function index(req, res) {
     }
 }
 
+// new
+function newFlight(req, res) {
+    res.render('flights/new', { title: 'Add Flight'} );
+}
+
 module.exports = {
-    index
+    index,
+    new: newFlight
 };
