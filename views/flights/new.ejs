@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<form action="flights" method="post">
+<form action="/flights" method="post">
     <label>
         Airline:
         <select name="airline">
@@ -24,7 +24,7 @@
     </label><br>
     <label>
         Flight Number:
-        <input type="text" name="flightNo" pattern="/\d{2,4}/">
+        <input type="text" name="flightNo">
     </label><br>
     <label>
         Departure Date/Time:
