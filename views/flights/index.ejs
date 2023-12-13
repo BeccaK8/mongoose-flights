@@ -1,21 +1,20 @@
 <%- include('../partials/header') %>
 
-<table>
+<table class="table-flights">
     <thead>
         <th>Airline</th>
         <th>Airport</th>
-        <th>Flight No</th>
+        <th>Flight Number</th>
         <th>Departs</th>
     </thead>
+
+    <% flights.forEach(function(f) { %>
+        <tr>
+            <td><%= f.airline %></td>
+            <td><%= f.airport %></td>
+            <td><%= f.flightNo %></td>
+            <td><%= f.departs.toLocaleString() %></td>
+        </tr>
+    <% }) %>
 </table>
-
-<% flights.forEach(function(f) { %>
-    <tr>
-        <td><%= f.airline %></td>
-        <td><%= f.airport %></td>
-        <td><%= f.flightNo %></td>
-        <td><%= f.departs %></td>
-    </tr>
-<% }) %>
-
 <%- include('../partials/footer') %>
