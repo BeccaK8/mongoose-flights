@@ -18,9 +18,39 @@
         }) %>
     </div>
 </section>
+<br>
+<hr>
+<section id="destinations">
+    <h2>Destinations:</h2>
+    <table class="table-destinations">
+        <thead>
+            <th>Airport</th>
+            <th>Arrival</th>
+        </thead>
+        <% if (flight.destinations.length) { %>
+        
+            <% flight.destinations.forEach(function(d) { %>
+                <tr>
+                    <td><%= d.airport %></td>
+                    <td><%= d.arrival.toLocaleString("en-US", {
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "2-digit",
+                        hour: "2-digit",
+                        minute: "2-digit"
+                    }) %></td>
+                </tr>
+            <% }) %>
+        <% } else { %>
+            <tr>
+                <td colspan="2">No Destinations</td>
+            </tr>
+            <% } %>
+        </table>
+</section>
 
 <section>
-    <h2>Destinations:</h2>
+    <h3>Add Destination:</h3>
     <form  id="destination-form" action="/flights/<%= flight._id %>/destinations" method="post">
         <label>
             Airport:
