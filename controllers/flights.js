@@ -18,6 +18,24 @@ async function index(req, res) {
     }
 }
 
+// show
+async function show(req, res) {
+    try {
+        const flight = await Flight.findById(req.params.id);
+        console.log('show controller: flight = ', flight);
+        res.render('flights/show', {
+            flight: flight,
+            title: 'Flight Details'
+        });
+    } catch(err) {
+        console.log('An error occurred: \n', err);
+        res.render('error', { 
+            error: err,
+            message: 'An error has occurred while showing flight details'
+        });
+    }
+}
+
 // new
 function newFlight(req, res) {
     // default departure date to today + 1 year
@@ -50,6 +68,7 @@ async function create(req, res) {
 
 module.exports = {
     index,
+    show,
     new: newFlight,
     create
 };

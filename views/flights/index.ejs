@@ -6,6 +6,7 @@
         <th>Airport</th>
         <th>Flight Number</th>
         <th>Departs</th>
+        <th>Details</th>
     </thead>
 
     <% flights.forEach(function(f) { %>
@@ -20,6 +21,7 @@
                 hour: "2-digit",
                 minute: "2-digit"
             }) %></td>
+            <td><a href="/flights/<%= f._id %>">Details</a></td>
         </tr>
     <% }) %>
 </table>
