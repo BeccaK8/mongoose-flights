@@ -19,4 +19,27 @@
     </div>
 </section>
 
+<section>
+    <h2>Destinations:</h2>
+    <form  id="destination-form" action="/flights/<%= flight._id %>/destinations" method="post">
+        <label>
+            Airport:
+            <select name="airport">
+                <option value="AUS">AUS</option>
+                <option value="DTW">DTW</option>
+                <option value="DEN">DEN</option>
+                <option value="LAX">LAX</option>
+                <option value="ORD">ORD</option>
+                <option value="SAN">SAN</option>
+            </select>
+        </label><br>
+        <label>
+            Arrival Date/Time:
+            <input type="datetime-local" name="arrival">
+        </label><br>
+        <button type="submit">Add Destination</button>
+    
+    </form>
+</section>
+
 <%- include('../partials/footer') %>
