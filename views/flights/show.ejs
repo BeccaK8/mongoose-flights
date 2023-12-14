@@ -63,12 +63,24 @@
         <label>
             Airport:
             <select name="airport">
-                <option value="AUS">AUS</option>
-                <option value="DTW">DTW</option>
-                <option value="DEN">DEN</option>
-                <option value="LAX">LAX</option>
-                <option value="ORD">ORD</option>
-                <option value="SAN">SAN</option>
+                <% if (flight.airport !== 'AUS' && !flight.destinations.find(dest => dest.airport === 'AUS')) { %>
+                    <option value="AUS">AUS</option>
+                <% } %>
+                <% if (flight.airport !== 'DTW' && !flight.destinations.find(dest => dest.airport === 'DTW')) { %>
+                    <option value="DTW">DTW</option>
+                <% } %>
+                <% if (flight.airport !== 'DEN' && !flight.destinations.find(dest => dest.airport === 'DEN')) { %>
+                    <option value="DEN">DEN</option>
+                <% } %>
+                <% if (flight.airport !== 'LAX' && !flight.destinations.find(dest => dest.airport === 'LAX')) { %>
+                    <option value="LAX">LAX</option>
+                <% } %>
+                <% if (flight.airport !== 'ORD' && !flight.destinations.find(dest => dest.airport === 'ORD')) { %>
+                    <option value="ORD">ORD</option>
+                <% } %>
+                <% if (flight.airport !== 'SAN' && !flight.destinations.find(dest => dest.airport === 'SAN')) { %>
+                    <option value="SAN">SAN</option>
+                <% } %>
             </select>
         </label><br>
         <label>
