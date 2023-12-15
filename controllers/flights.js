@@ -52,7 +52,7 @@ async function show(req, res) {
     // Option 3
     try {
         const flight = await Flight.findById(req.params.id);
-        const tickets = await Ticket.find({flight: flight._id});
+        const tickets = await Ticket.find({flight: flight._id}).sort('seat');
         res.render('flights/show', {
             flight,
             tickets, 
