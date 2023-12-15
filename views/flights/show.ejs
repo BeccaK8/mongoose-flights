@@ -102,11 +102,15 @@
             <th>Price</th>
         </thead>
         <%  if (tickets.length) { %>
+            <% const USDollar = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }); %>
         
             <% tickets.forEach(function(t) { %>
                 <tr>
                     <td><%= t.seat %></td>
-                    <td><%= t.price %></td>
+                    <td><%= USDollar.format(t.price) %></td>
                 </tr>
             <% }) %>
         <% } else { %>
