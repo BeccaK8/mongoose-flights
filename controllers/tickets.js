@@ -17,7 +17,7 @@ async function create(req, res) {
 
         // create the ticket
         await Ticket.create(req.body);
-        
+
         res.redirect(`/flights/${flight._id}`);
     } catch(err) {
         console.log('An error occurred: \n', err);
@@ -28,7 +28,21 @@ async function create(req, res) {
     }
 }
 
+async function deleteTicket(req, res) {
+    try {
+        await Ticket.findByIdAndDelete(req.params.id);
+        res.redirect(`/flights/${req.body.flightId}`);
+    } catch(err) {
+        console.log('An error occurred: \n', err);
+        res.render('error', { 
+            error: err,
+            message: 'An error has occurred while deleting ticket'
+        });
+    }
+}
+
 module.exports = {
     new: newTicket,
-    create
+    create,
+    delete: deleteTicket
 }
