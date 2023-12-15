@@ -40,9 +40,24 @@ button, #add-ticket-link {
   font-size: 16px;
 }
 
+.button-delete {
+  background-color: white;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+}
+
 
 #show-page {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1rem;
+}
+
+.currency {
+  text-align: right;
 }

@@ -100,6 +100,7 @@
         <thead>
             <th>Seat</th>
             <th>Price</th>
+            <th>Delete</th>
         </thead>
         <%  if (tickets.length) { %>
             <% const USDollar = new Intl.NumberFormat('en-US', {
@@ -110,7 +111,12 @@
             <% tickets.forEach(function(t) { %>
                 <tr>
                     <td><%= t.seat %></td>
-                    <td><%= USDollar.format(t.price) %></td>
+                    <td class="currency"><%= USDollar.format(t.price) %></td>
+                    <td>
+                        <form action="/tickets/<%= t._id %>?_method=DELETE" method="post">
+                            <button type="submit" class="button-delete">X</button>
+                        </form>
+                    </td>
                 </tr>
             <% }) %>
         <% } else { %>
