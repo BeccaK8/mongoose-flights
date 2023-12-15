@@ -13,7 +13,7 @@ const ticketSchema = new Schema({
     },
     flight: {
         type: Schema.Types.ObjectId,
-        ref: Flight
+        ref: 'Flight'
     }
 }, {
     timestamps: true

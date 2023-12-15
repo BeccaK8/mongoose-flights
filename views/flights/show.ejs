@@ -92,4 +92,30 @@
     </form>
 </section>
 
+<br>
+<hr>
+<section id="tickets">
+    <h2>Tickets:</h2>
+    <table class="table-tickets">
+        <thead>
+            <th>Seat</th>
+            <th>Price</th>
+        </thead>
+        <%  if (tickets.length) { %>
+        
+            <% tickets.forEach(function(t) { %>
+                <tr>
+                    <td><%= t.seat %></td>
+                    <td><%= t.price %></td>
+                </tr>
+            <% }) %>
+        <% } else { %>
+            <tr>
+                <td colspan="2">No Tickets</td>
+            </tr>
+            <% } %>
+        </table>
+</section>
+
+
 <%- include('../partials/footer') %>

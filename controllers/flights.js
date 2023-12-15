@@ -1,5 +1,6 @@
-// import the Flight model
+// import the Flight and Ticket models
 const Flight = require('../models/flight');
+const Ticket = require('../models/ticket');
 
 // index
 async function index(req, res) {
@@ -20,14 +21,44 @@ async function index(req, res) {
 
 // show
 async function show(req, res) {
+        // const flight = await Flight.findById(req.params.id, function(err, flight) {
+        //     Ticket.find({flight: flight._id}, function(err, tickets) {
+        //         res.render('flights/show', {
+        //             flight,
+        //             tickets, 
+        //             title: 'Flight Details'
+        //         });
+        //     });
+        // });
+        // Option 2
+
+    // const rtnFlight = await Flight.findById(req.params.id)
+    // .then(function (f) {
+    //     const tickets = Ticket.find({flight: rtnFlight._id});
+    //     res.render('flights/show', {
+    //         flight: rtnFlight,
+    //         tickets,
+    //         title: 'Flight Details'
+    //     });
+    // })
+    // .catch(function(err) {
+    //     console.log('An error occurred: \n', err);
+    //     res.render('error', { 
+    //         error: err,
+    //         message: 'An error has occurred while showing flight details'
+    //     });
+    // });
+
+    // Option 3
     try {
         const flight = await Flight.findById(req.params.id);
-        console.log('show controller: flight = ', flight);
+        const tickets = await Ticket.find({flight: flight._id});
         res.render('flights/show', {
-            flight: flight,
+            flight,
+            tickets, 
             title: 'Flight Details'
         });
-    } catch(err) {
+    } catch (err) {
         console.log('An error occurred: \n', err);
         res.render('error', { 
             error: err,
