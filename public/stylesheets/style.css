@@ -13,6 +13,10 @@ body {
     "main"
 }
 
+a {
+  color: #0d3b66;
+}
+
 body > nav {
   grid-area: nav;
   background-color: #faf0ca;
@@ -50,7 +54,7 @@ nav > a:hover:not(.active) {
 }
 
 nav > a.active {
-  color: #f4d35e;
+  color: #ee964b;
   cursor: default;
 }
 
@@ -107,4 +111,10 @@ button, #add-ticket-link {
 
 .currency {
   text-align: right;
+}
+
+.separator {
+  border-top: 2px solid #0d3b66;
+  width: 50%;
+  margin: 20px 0 10px 0;
 }

@@ -18,8 +18,7 @@
         }) %>
     </div>
 </section>
-<br>
-<hr>
+<div class="separator"></div>
 <section id="destinations">
     <h2>Destinations:</h2>
     <table class="table-destinations">
@@ -91,9 +90,7 @@
     
     </form>
 </section>
-
-<br>
-<hr>
+<div class="separator"></div>
 <section id="tickets">
     <h2>Tickets:</h2>
     <table class="table-tickets">
@@ -127,7 +124,7 @@
         <% } %>
     </table>
     <br>
-    <a href="/flights/<%= flight._id %>/tickets/new" id="add-ticket-link">Add Ticket</a>
+    <a href="/flights/<%= flight._id %>/tickets/new" id="add-ticket-link">New Ticket</a>
 </section>
 
 <%- include('../partials/footer') %>
