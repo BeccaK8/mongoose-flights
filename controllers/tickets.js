@@ -1,5 +1,6 @@
-// import the Ticket model
+// import the Ticket and Flight model
 const Ticket = require('../models/ticket');
+const Flight = require('../models/flight');
 
 function newTicket(req, res) {
     res.render('tickets/new', {
@@ -8,6 +9,26 @@ function newTicket(req, res) {
     });
 }
 
+async function create(req, res) {
+    try {
+        // add the flight to the req.body
+        const flight = await Flight.findById(req.params.id);
+        req.body.flight = flight;
+
+        // create the ticket
+        await Ticket.create(req.body);
+        
+        res.redirect(`/flights/${flight._id}`);
+    } catch(err) {
+        console.log('An error occurred: \n', err);
+        res.render('error', { 
+            error: err,
+            message: 'An error has occurred while creating ticket'
+        });
+    }
+}
+
 module.exports = {
-    new: newTicket
+    new: newTicket,
+    create
 }
